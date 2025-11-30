@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Kontak — Herbaprima</title>
+  <meta name="description" content="Hubungi Herbaprima lewat WhatsApp, email, atau kunjungi toko kami.">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+  <!-- Header -->
+  <header class="sticky-top shadow-sm bg-white" id="mainHeader">
+    <nav class="navbar navbar-expand-lg navbar-light container">
+      <a class="navbar-brand d-flex align-items-center" href="index.html">
+        <img src="https://cdn.jsdelivr.net/gh/argea-gh/temp-assets/herbaprima-logo.png" alt="Herbaprima" class="brand-logo me-2">
+        <div>
+          <div class="brand-name">Herbaprima</div>
+          <small class="text-muted brand-tag">Herbal Modern & Premium</small>
+        </div>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu6">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navMenu6">
+        <ul class="navbar-nav ms-auto align-items-lg-center">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="products.html">Produk</a></li>
+          <li class="nav-item"><a class="nav-link" href="about.html">Tentang Kami</a></li>
+          <li class="nav-item"><a class="nav-link" href="#testimonials">Testimoni</a></li>
+          <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
+          <li class="nav-item"><a class="nav-link active" href="contact.html">Kontak</a></li>
+          <li class="nav-item ms-2">
+            <button class="btn btn-outline-secondary position-relative" id="cartBtn" data-bs-toggle="offcanvas" data-bs-target="#cartOffcanvas">
+              <i class="fa fa-shopping-cart"></i>
+              <span id="cartCount" class="badge bg-danger rounded-pill position-absolute top-0 start-100 translate-middle">0</span>
+            </button>
+          </li>
+          <li class="nav-item ms-2">
+            <button id="themeToggle" class="btn btn-light" title="Toggle dark mode"><i class="fa fa-moon"></i></button>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <main class="container py-5" data-aos="fade-up">
+    <div class="row">
+      <div class="col-md-7">
+        <h1>Kontak Kami</h1>
+        <p class="text-muted">Ada pertanyaan atau butuh rekomendasi produk? Hubungi kami melalui formulir atau WhatsApp.</p>
+        <form id="contactForm" class="mb-4">
+          <div class="mb-3">
+            <label class="form-label">Nama</label>
+            <input type="text" class="form-control" required id="contactName">
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Email</label>
+            <input type="email" class="form-control" required id="contactEmail">
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Pesan</label>
+            <textarea class="form-control" rows="5" required id="contactMessage"></textarea>
+          </div>
+          <button type="submit" class="btn btn-success">Kirim Pesan</button>
+        </form>
+      </div>
+      <div class="col-md-5">
+        <div class="card p-3">
+          <h5>Info Kontak</h5>
+          <p class="small mb-1"><i class="fa fa-phone me-2"></i>+62 812-3456-7890 (WhatsApp)</p>
+          <p class="small mb-1"><i class="fa fa-envelope me-2"></i>halo@herbaprima.example</p>
+          <p class="small mb-1"><i class="fa fa-map-marker-alt me-2"></i>Jl. Sehat No.12, Jakarta</p>
+          <p class="small mb-0"><i class="fa fa-clock me-2"></i>Senin–Sabtu: 08.00–17.00</p>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- CTA Footer & Footer -->
+  <section class="py-5 bg-success text-white">
+    <div class="container text-center">
+      <h3 class="mb-3">Siap hidup sehat dengan bahan alami?</h3>
+      <p class="mb-4">Hubungi kami via WhatsApp atau telusuri koleksi produk herbal premium kami.</p>
+      <a href="contact.html" class="btn btn-outline-light me-2">Hubungi Kami</a>
+      <a href="products.html" class="btn btn-light">Belanja Sekarang</a>
+    </div>
+  </section>
+
+  <footer class="pt-5 pb-4 bg-dark text-light">
+    <div class="container">
+      <div class="row gy-4">
+        <div class="col-md-4">
+          <img src="https://cdn.jsdelivr.net/gh/argea-gh/temp-assets/herbaprima-logo-white.png" alt="Herbaprima" style="height:48px;">
+          <p class="mt-3 small">Herbaprima menyajikan produk kesehatan herbal berkualitas untuk mendukung gaya hidup sehat Anda secara alami.</p>
+          <p class="small mb-0"><i class="fa fa-map-marker-alt me-2"></i>Jl. Sehat No. 12, Jakarta</p>
+          <p class="small mb-0"><i class="fa fa-clock me-2"></i>Senin–Sabtu: 08.00–17.00</p>
+          <p class="small mb-0"><i class="fa fa-phone me-2"></i>+62 812-3456-7890 (WhatsApp)</p>
+          <p class="small mb-0"><i class="fa fa-envelope me-2"></i>halo@herbaprima.example</p>
+        </div>
+
+        <div class="col-md-2">
+          <h6>Quick Links</h6>
+          <ul class="list-unstyled small">
+            <li><a href="index.html" class="text-light">Home</a></li>
+            <li><a href="products.html" class="text-light">Produk</a></li>
+            <li><a href="about.html" class="text-light">Tentang Kami</a></li>
+            <li><a href="blog.html" class="text-light">Blog</a></li>
+            <li><a href="contact.html" class="text-light">Kontak</a></li>
+          </ul>
+        </div>
+
+        <div class="col-md-3">
+          <h6>Ikuti Kami</h6>
+          <div class="social-links">
+            <a href="#" class="me-2 text-light"><i class="fab fa-facebook fa-lg"></i></a>
+            <a href="#" class="me-2 text-light"><i class="fab fa-instagram fa-lg"></i></a>
+            <a href="#" class="me-2 text-light"><i class="fab fa-youtube fa-lg"></i></a>
+          </div>
+          <h6 class="mt-3">Newsletter</h6>
+          <form id="newsletterForm" class="d-flex">
+            <input type="email" class="form-control form-control-sm me-2" placeholder="Email Anda" required>
+            <button class="btn btn-sm btn-success">Daftar</button>
+          </form>
+        </div>
+
+        <div class="col-md-3">
+          <h6>Alamat</h6>
+          <address class="small">Herbaprima HQ<br>Jl. Sehat No. 12, Jakarta Pusat<br>Indonesia</address>
+          <p class="small mb-0">© <span id="year"></span> Herbaprima. Semua hak dilindungi.</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Offcanvas Cart -->
+  <div class="offcanvas offcanvas-end" tabindex="-1" id="cartOffcanvas">
+    <div class="offcanvas-header">
+      <h5 class="offcanvas-title">Keranjang Saya</h5>
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+    </div>
+    <div class="offcanvas-body d-flex flex-column">
+      <div id="cartItems" class="mb-3"></div>
+      <div class="mt-auto">
+        <div class="d-flex justify-content-between align-items-center mb-3">
+          <strong>Total:</strong>
+          <strong id="cartTotal">Rp 0</strong>
+        </div>
+        <div class="d-grid gap-2">
+          <button id="resetCart" class="btn btn-outline-danger">Reset Keranjang</button>
+          <button id="checkoutWA" class="btn btn-success">Checkout via WhatsApp</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Floating WA & Scroll top -->
+  <a href="#" id="floatingWA" class="floating-wa" target="_blank" title="Chat via WhatsApp"><i class="fab fa-whatsapp fa-lg"></i></a>
+  <button id="scrollTopBtn" class="btn btn-success scroll-top" title="Kembali ke atas"><i class="fa fa-chevron-up"></i></button>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+  <script src="assets/js/mock-api.js"></script>
+  <script src="assets/js/products-data.js"></script>
+  <script src="assets/js/app.js"></script>
+
+  <script>
+    AOS.init({ duration: 800, once: true });
+    document.getElementById('year').textContent = new Date().getFullYear();
+    document.getElementById('contactForm').addEventListener('submit', function(e){
+      e.preventDefault();
+      alert('Terima kasih! Pesan Anda telah terkirim. Kami akan menghubungi segera via email/WA.');
+      this.reset();
+    });
+  </script>
+</body>
+</html>

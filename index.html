@@ -1,0 +1,343 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Herbaprima — Solusi Herbal Modern untuk Hidup Sehat Alami</title>
+  <meta name="description" content="Herbaprima: Madu premium dan suplemen herbal berkualitas untuk hidup sehat alami. Beli online, kirim via WhatsApp.">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+  <!-- Preloader -->
+  <div id="preloader" class="preloader">
+    <div class="spinner-border text-success" role="status" aria-hidden="true"></div>
+  </div>
+
+  <!-- Header (consistent across pages) -->
+  <header class="sticky-top shadow-sm bg-white" id="mainHeader">
+    <nav class="navbar navbar-expand-lg navbar-light container">
+      <a class="navbar-brand d-flex align-items-center" href="index.html">
+        <img src="https://cdn.jsdelivr.net/gh/argea-gh/temp-assets/herbaprima-logo.png" alt="Herbaprima" class="brand-logo me-2">
+        <div>
+          <div class="brand-name">Herbaprima</div>
+          <small class="text-muted brand-tag">Herbal Modern & Premium</small>
+        </div>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navMenu">
+        <ul class="navbar-nav ms-auto align-items-lg-center">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="products.html">Produk</a></li>
+          <li class="nav-item"><a class="nav-link" href="about.html">Tentang Kami</a></li>
+          <li class="nav-item"><a class="nav-link" href="#testimonials">Testimoni</a></li>
+          <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
+          <li class="nav-item"><a class="nav-link" href="contact.html">Kontak</a></li>
+          <li class="nav-item ms-2">
+            <button class="btn btn-outline-secondary position-relative" id="cartBtn" data-bs-toggle="offcanvas" data-bs-target="#cartOffcanvas">
+              <i class="fa fa-shopping-cart"></i>
+              <span id="cartCount" class="badge bg-danger rounded-pill position-absolute top-0 start-100 translate-middle">0</span>
+            </button>
+          </li>
+          <li class="nav-item ms-2">
+            <button id="themeToggle" class="btn btn-light" title="Toggle dark mode"><i class="fa fa-moon"></i></button>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Hero -->
+  <main>
+    <section class="hero-section" style="background-image: url('https://images.unsplash.com/photo-1501004318641-b39e6451bec6?q=80&w=1920&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder');">
+      <div class="overlay"></div>
+      <div class="container hero-content text-white" data-aos="fade-up">
+        <div class="row align-items-center">
+          <div class="col-lg-6">
+            <h1 class="display-5 fw-bold">Herbaprima — Solusi Herbal Modern untuk Hidup Sehat Alami</h1>
+            <p class="lead">Dari madu premium hingga suplemen herbal, diproduksi dengan standar mutu tinggi untuk menunjang kesehatan harian Anda.</p>
+            <div class="mt-4">
+              <a href="products.html" class="btn btn-lg btn-success me-2">Lihat Produk</a>
+              <a href="contact.html" class="btn btn-lg btn-outline-light">Hubungi Kami</a>
+            </div>
+          </div>
+
+          <div class="col-lg-6 mt-4 mt-lg-0">
+            <div id="heroCarousel" class="carousel slide shadow-lg rounded" data-bs-ride="carousel">
+              <div class="carousel-inner">
+                <div class="carousel-item active">
+                  <img src="https://images.unsplash.com/photo-1573497491208-6b1acb260507?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" class="d-block w-100" alt="Madu Premium">
+                </div>
+                <div class="carousel-item">
+                  <img src="https://images.unsplash.com/photo-1506806732259-39c2d0268443?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" class="d-block w-100" alt="Suplemen Herbal">
+                </div>
+                <div class="carousel-item">
+                  <img src="https://images.unsplash.com/photo-1528825871115-3581a5387919?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" class="d-block w-100" alt="Essential Oil">
+                </div>
+              </div>
+              <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon"></span>
+              </button>
+              <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
+                <span class="carousel-control-next-icon"></span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Categories -->
+    <section class="py-5 container" data-aos="fade-up">
+      <h2 class="section-title">Kategori Unggulan</h2>
+      <p class="text-muted mb-4">Pilih kategori untuk menemukan produk terbaik kami.</p>
+      <div class="row g-3">
+        <div class="col-md-6 col-lg-3">
+          <a href="products.html?cat=madu" class="card category-card h-100">
+            <img src="https://images.unsplash.com/photo-1519681393784-d120267933ba?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" alt="Madu Premium">
+            <div class="card-body">
+              <h5 class="card-title">Madu Premium</h5>
+              <p class="card-text small text-muted">Madu alami, berkualitas, tanpa pemanis tambahan.</p>
+            </div>
+          </a>
+        </div>
+        <div class="col-md-6 col-lg-3">
+          <a href="products.html?cat=suplemen" class="card category-card h-100">
+            <img src="https://images.unsplash.com/photo-1549576490-b0b4831ef60a?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" alt="Suplemen Herbal">
+            <div class="card-body">
+              <h5 class="card-title">Suplemen Herbal</h5>
+              <p class="card-text small text-muted">Kapsul & ekstrak herbal untuk kebutuhan harian.</p>
+            </div>
+          </a>
+        </div>
+        <div class="col-md-6 col-lg-3">
+          <a href="products.html?cat=essential" class="card category-card h-100">
+            <img src="https://images.unsplash.com/photo-1516594798947-1f6b13a5f4bb?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" alt="Oil">
+            <div class="card-body">
+              <h5 class="card-title">Minyak & Essential Oil</h5>
+              <p class="card-text small text-muted">Aromaterapi & minyak nabati berkualitas.</p>
+            </div>
+          </a>
+        </div>
+        <div class="col-md-6 col-lg-3">
+          <a href="products.html?cat=tradisional" class="card category-card h-100">
+            <img src="https://images.unsplash.com/photo-1519337265831-281ec6cc8514?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" alt="Ramuan Tradisional">
+            <div class="card-body">
+              <h5 class="card-title">Ramuan Tradisional</h5>
+              <p class="card-text small text-muted">Formula tradisional turun-temurun.</p>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Produk Grid -->
+    <section class="py-5 bg-light">
+      <div class="container" data-aos="fade-up">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+          <div>
+            <h2 class="section-title mb-0">Produk Terbaru</h2>
+            <small class="text-muted">Koleksi pilihan terbaik dari Herbaprima</small>
+          </div>
+          <a href="products.html" class="btn btn-outline-success">Lihat Semua Produk</a>
+        </div>
+
+        <div id="homeProducts" class="row g-4">
+          <!-- Produk akan di-render oleh JavaScript -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Best Sellers -->
+    <section class="py-5 container" data-aos="fade-up">
+      <h2 class="section-title">Produk Terlaris</h2>
+      <p class="text-muted mb-4">Produk yang paling banyak diminati pelanggan kami.</p>
+      <div id="bestSellers" class="row g-4">
+        <!-- akan diisi via JS -->
+      </div>
+    </section>
+
+    <!-- Testimonials (5 kolom pada layar besar) -->
+    <section id="testimonials" class="py-5 bg-white" data-aos="fade-up">
+      <div class="container">
+        <h2 class="section-title">Apa Kata Mereka?</h2>
+        <p class="text-muted mb-4">Ulasan asli dari pelanggan yang sudah merasakan manfaat produk kami.</p>
+
+        <div class="testimonials-grid">
+          <div class="card testimonial-card p-3">
+            <div class="card-body">
+              <div class="d-flex align-items-center mb-3">
+                <img src="https://i.pravatar.cc/64?img=12" class="rounded-circle me-3" alt="">
+                <div>
+                  <strong>Ayu</strong>
+                  <div class="small text-warning"><i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star-half-alt"></i></div>
+                </div>
+              </div>
+              <p class="mb-0">Madu Herbaprima sangat membantu daya tahan keluarga saya. Rasa natural dan kemasan premium.</p>
+            </div>
+          </div>
+
+          <div class="card testimonial-card p-3">
+            <div class="card-body">
+              <div class="d-flex align-items-center mb-3">
+                <img src="https://i.pravatar.cc/64?img=5" class="rounded-circle me-3" alt="">
+                <div>
+                  <strong>Rizal</strong>
+                  <div class="small text-warning"><i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i></div>
+                </div>
+              </div>
+              <p class="mb-0">Suplemen herbalnya berkualitas, cepat terasa efeknya. Packing rapi dan pengiriman cepat.</p>
+            </div>
+          </div>
+
+          <div class="card testimonial-card p-3">
+            <div class="card-body">
+              <div class="d-flex align-items-center mb-3">
+                <img src="https://i.pravatar.cc/64?img=9" class="rounded-circle me-3" alt="">
+                <div>
+                  <strong>Siti</strong>
+                  <div class="small text-warning"><i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star-half-alt"></i> <i class="fa fa-star"></i></div>
+                </div>
+              </div>
+              <p class="mb-0">Minyak esensialnya harum alami, cocok untuk relaksasi. Bakal repeat order!</p>
+            </div>
+          </div>
+
+          <div class="card testimonial-card p-3">
+            <div class="card-body">
+              <div class="d-flex align-items-center mb-3">
+                <img src="https://i.pravatar.cc/64?img=16" class="rounded-circle me-3" alt="">
+                <div>
+                  <strong>Budi</strong>
+                  <div class="small text-warning"><i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i></div>
+                </div>
+              </div>
+              <p class="mb-0">Pelayanan cepat dan produk original. Recommended.</p>
+            </div>
+          </div>
+
+          <div class="card testimonial-card p-3">
+            <div class="card-body">
+              <div class="d-flex align-items-center mb-3">
+                <img src="https://i.pravatar.cc/64?img=3" class="rounded-circle me-3" alt="">
+                <div>
+                  <strong>Dewi</strong>
+                  <div class="small text-warning"><i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star-half-alt"></i> <i class="fa fa-star"></i></div>
+                </div>
+              </div>
+              <p class="mb-0">Produk berkualitas dan kemasan rapi. Puas belanja di Herbaprima!</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- CTA Footer -->
+    <section class="py-5 bg-success text-white" data-aos="fade-up">
+      <div class="container text-center">
+        <h3 class="mb-3">Siap hidup sehat dengan bahan alami?</h3>
+        <p class="mb-4">Hubungi kami via WhatsApp atau telusuri koleksi produk herbal premium kami.</p>
+        <a href="contact.html" class="btn btn-outline-light me-2">Hubungi Kami</a>
+        <a href="products.html" class="btn btn-light">Belanja Sekarang</a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer (consistent) -->
+  <footer class="pt-5 pb-4 bg-dark text-light">
+    <div class="container">
+      <div class="row gy-4">
+        <div class="col-md-4">
+          <img src="https://cdn.jsdelivr.net/gh/argea-gh/temp-assets/herbaprima-logo-white.png" alt="Herbaprima" style="height:48px;">
+          <p class="mt-3 small">Herbaprima menyajikan produk kesehatan herbal berkualitas untuk mendukung gaya hidup sehat Anda secara alami.</p>
+          <p class="small mb-0"><i class="fa fa-map-marker-alt me-2"></i>Jl. Sehat No. 12, Jakarta</p>
+          <p class="small mb-0"><i class="fa fa-clock me-2"></i>Senin–Sabtu: 08.00–17.00</p>
+          <p class="small mb-0"><i class="fa fa-phone me-2"></i>+62 812-3456-7890 (WhatsApp)</p>
+          <p class="small mb-0"><i class="fa fa-envelope me-2"></i>halo@herbaprima.example</p>
+        </div>
+
+        <div class="col-md-2">
+          <h6>Quick Links</h6>
+          <ul class="list-unstyled small">
+            <li><a href="index.html" class="text-light">Home</a></li>
+            <li><a href="products.html" class="text-light">Produk</a></li>
+            <li><a href="about.html" class="text-light">Tentang Kami</a></li>
+            <li><a href="blog.html" class="text-light">Blog</a></li>
+            <li><a href="contact.html" class="text-light">Kontak</a></li>
+          </ul>
+        </div>
+
+        <div class="col-md-3">
+          <h6>Ikuti Kami</h6>
+          <div class="social-links">
+            <a href="#" class="me-2 text-light"><i class="fab fa-facebook fa-lg"></i></a>
+            <a href="#" class="me-2 text-light"><i class="fab fa-instagram fa-lg"></i></a>
+            <a href="#" class="me-2 text-light"><i class="fab fa-youtube fa-lg"></i></a>
+          </div>
+          <h6 class="mt-3">Newsletter</h6>
+          <form id="newsletterForm" class="d-flex">
+            <input type="email" class="form-control form-control-sm me-2" placeholder="Email Anda" required>
+            <button class="btn btn-sm btn-success">Daftar</button>
+          </form>
+        </div>
+
+        <div class="col-md-3">
+          <h6>Alamat</h6>
+          <address class="small">Herbaprima HQ<br>Jl. Sehat No. 12, Jakarta Pusat<br>Indonesia</address>
+          <p class="small mb-0">© <span id="year"></span> Herbaprima. Semua hak dilindungi.</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Offcanvas Cart -->
+  <div class="offcanvas offcanvas-end" tabindex="-1" id="cartOffcanvas">
+    <div class="offcanvas-header">
+      <h5 class="offcanvas-title">Keranjang Saya</h5>
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+    </div>
+    <div class="offcanvas-body d-flex flex-column">
+      <div id="cartItems" class="mb-3"></div>
+      <div class="mt-auto">
+        <div class="d-flex justify-content-between align-items-center mb-3">
+          <strong>Total:</strong>
+          <strong id="cartTotal">Rp 0</strong>
+        </div>
+        <div class="d-grid gap-2">
+          <button id="resetCart" class="btn btn-outline-danger">Reset Keranjang</button>
+          <button id="checkoutWA" class="btn btn-success">Checkout via WhatsApp</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Floating WhatsApp -->
+  <a href="#" id="floatingWA" class="floating-wa" target="_blank" title="Chat via WhatsApp">
+    <i class="fab fa-whatsapp fa-lg"></i>
+  </a>
+
+  <!-- Scroll to top -->
+  <button id="scrollTopBtn" class="btn btn-success scroll-top" title="Kembali ke atas"><i class="fa fa-chevron-up"></i></button>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+
+  <!-- Mock API -->
+  <script src="assets/js/mock-api.js"></script>
+  <script src="assets/js/products-data.js"></script>
+  <script src="assets/js/app.js"></script>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    AOS.init({ duration: 800, once: true });
+  </script>
+</body>
+</html>
