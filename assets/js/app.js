@@ -1,9 +1,5 @@
-// Updated app.js
-// - Event delegation for add-to-cart and cart controls to avoid duplicate listeners
-// - Use Bootstrap tooltip for "Masukkan ke keranjang" on hover
-// - Product grid updated to 6 columns (col-lg-2)
-// - Testimonial layout handled via CSS .testimonials-grid
-// - Floating WA & Scroll top behavior remain
+// app.js (perbaikan: tunggu PRODUCTS_LOADED, fallback reload jika perlu)
+// Tetap mempertahankan fitur cart, render, dan delegasi event
 
 // Utilities
 const formatRp = (num) => {
@@ -22,7 +18,6 @@ function saveCart(){
   renderCartUI();
 }
 
-// addToCart validates stock with API and always increments by exactly `qty` requested
 async function addToCart(productId, qty = 1){
   try {
     const res = await fetch(`/api/products/${productId}`);
@@ -69,7 +64,6 @@ function resetCart(){
   saveCart();
 }
 
-// Toast
 function showToast(msg, type = 'success'){
   const colors = {
     success: 'text-bg-success',
@@ -126,13 +120,11 @@ function renderCartUI(){
     totalEls.forEach(el => el.textContent = formatRp(total));
   });
 
-  // update cart count indicators if present
   const countEls = document.querySelectorAll('#cartCount');
   countEls.forEach(el=>{ if(el) el.textContent = cart.reduce((s,i)=>s+i.qty,0); });
 }
 
-// Render products (home, products page, bestsellers)
-// Use col classes to show 6 columns on large (col-lg-2)
+// PRODUCT CARD HTML helper (6 kolom on lg)
 function productCardHtml(p){
   return `
     <div class="col-6 col-sm-4 col-md-3 col-lg-2">
@@ -146,7 +138,7 @@ function productCardHtml(p){
             <div>
               ${p.bestseller ? '<span class="badge badge-bestseller me-2">Terlaris</span>' : ''}
               <button class="btn btn-sm btn-outline-secondary btn-detail" data-id="${p.id}">Detail</button>
-              <button class="btn btn-sm btn-success ms-1 btn-add btn-add-tooltip" data-id="${p.id}" data-bs-toggle="tooltip" title="Masukkan ke keranjang"><i class="fa fa-cart-plus"></i></button>
+              <button class="btn btn-sm btn-success ms-1 btn-add" data-id="${p.id}" data-bs-toggle="tooltip" title="Masukkan ke keranjang"><i class="fa fa-cart-plus"></i></button>
             </div>
           </div>
         </div>
@@ -159,6 +151,10 @@ function renderHomeProducts(){
   const container = qs('#homeProducts');
   if(!container) return;
   const items = (window.PRODUCTS || []).slice(0,6);
+  if(!items.length){
+    container.innerHTML = '<p class="text-muted">Tidak ada produk untuk ditampilkan.</p>';
+    return;
+  }
   container.innerHTML = items.map(productCardHtml).join('');
 }
 
@@ -166,6 +162,10 @@ function renderBestSellers(){
   const container = qs('#bestSellers');
   if(!container) return;
   const items = (window.PRODUCTS || []).filter(p => p.bestseller).slice(0,6);
+  if(!items.length){
+    container.innerHTML = '<p class="text-muted">Belum ada produk terlaris.</p>';
+    return;
+  }
   container.innerHTML = items.map(p => `
     <div class="col-6 col-sm-4 col-md-3 col-lg-2">
       <div class="card h-100 shadow-sm">
@@ -185,7 +185,6 @@ function renderBestSellers(){
   `).join('');
 }
 
-// Products page rendering with filtering & pagination (kept mostly same, card html updated)
 function renderProductsPage(){
   const grid = qs('#productsGrid');
   if(!grid) return;
@@ -206,10 +205,15 @@ function renderProductsPage(){
   }
 
   let page = parseInt(urlParams.get('page')) || 1;
-  const perPage = 12; // more per page because 6 columns
+  const perPage = 12;
 
   function draw(){
     const list = getFiltered();
+    if(!list.length){
+      grid.innerHTML = '<p class="text-muted">Tidak ada produk yang cocok.</p>';
+      qs('#pagination') && (qs('#pagination').innerHTML = '');
+      return;
+    }
     const totalPages = Math.max(1, Math.ceil(list.length / perPage));
     page = Math.min(page, totalPages);
     const start = (page - 1) * perPage;
@@ -242,7 +246,6 @@ function renderProductsPage(){
   draw();
 }
 
-// Product detail page rendering from ?id=
 function renderProductDetail(){
   const container = qs('#productDetail');
   if(!container) return;
@@ -302,7 +305,7 @@ function renderProductDetail(){
   });
 }
 
-// Floating WhatsApp button: opens chat with cart contents if any
+// Floating WA and cart checkout
 function initFloatingWA(){
   const floating = qs('#floatingWA');
   if(!floating) return;
@@ -326,7 +329,6 @@ function initFloatingWA(){
   });
 }
 
-// Checkout via WA button in cart offcanvas
 function initCartCheckout(){
   qsa('#checkoutWA').forEach(btn => {
     btn && btn.addEventListener('click', ()=>{
@@ -350,7 +352,7 @@ function initCartCheckout(){
   }));
 }
 
-// Scroll-to-top button
+// Scroll-to-top
 function initScrollTop(){
   const btn = qs('#scrollTopBtn');
   if(!btn) return;
@@ -360,28 +362,15 @@ function initScrollTop(){
   btn.addEventListener('click', ()=> window.scrollTo({top:0, behavior:'smooth'}));
 }
 
-// Preloader hide
-function initPreloader(){
-  window.addEventListener('load', ()=>{
-    const pre = qs('#preloader');
-    if(pre){
-      pre.classList.add('hidden');
-      setTimeout(()=> pre.style.display = 'none', 400);
-    }
-  });
-}
-
-// Bootstrap tooltips init (for dynamic elements)
+// Tooltips init
 function initTooltips(){
-  // destroy existing tooltips (if any) to avoid duplicates
   const tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
   tooltipTriggerList.forEach(el => {
-    // eslint-disable-next-line no-unused-vars
     try { new bootstrap.Tooltip(el); } catch(e){ /* ignore */ }
   });
 }
 
-// Cart items delegation: handle increase/decrease/remove and qty input
+// Cart delegation
 function initCartDelegation(){
   const container = qs('#cartItems');
   if(!container) return;
@@ -390,7 +379,6 @@ function initCartDelegation(){
     if(!row) return;
     const id = row.dataset.id;
     if(e.target.closest('.cart-increase')){
-      // validate stock then increment by 1
       try {
         const res = await fetch(`/api/products/${id}`);
         if(!res.ok){ showToast('Gagal validasi stok', 'danger'); return; }
@@ -407,7 +395,6 @@ function initCartDelegation(){
     }
   });
 
-  // qty change
   container.addEventListener('change', async (e)=>{
     const input = e.target.closest('.cart-qty-input');
     if(!input) return;
@@ -424,13 +411,13 @@ function initCartDelegation(){
   });
 }
 
-// Global click delegation for add-to-cart and detail buttons to ensure single listener
+// Global delegation for add/detail buttons
 function initGlobalDelegation(){
   document.addEventListener('click', (e)=>{
     const addBtn = e.target.closest('.btn-add');
     if(addBtn){
       const id = addBtn.dataset.id;
-      addToCart(id, 1); // always increment exactly 1 per click
+      addToCart(id, 1);
       return;
     }
     const det = e.target.closest('.btn-detail');
@@ -442,47 +429,45 @@ function initGlobalDelegation(){
   });
 }
 
-// Wire up after PRODUCTS_LOADED
+// Main init: wait for products then render
 document.addEventListener('DOMContentLoaded', async ()=>{
+  // wait for products-data.js loaded fetch
   if (window.PRODUCTS_LOADED) {
-    await window.PRODUCTS_LOADED.catch(()=>{});
+    try {
+      await window.PRODUCTS_LOADED;
+    } catch (e) {
+      console.warn('PRODUCTS_LOADED rejected, attempting reloadProducts()', e);
+      if (window.reloadProducts) {
+        try { await window.reloadProducts(); } catch(_) { /* ignore */ }
+      }
+    }
+  } else if (window.reloadProducts) {
+    // fallback if PRODUCTS_LOADED not defined
+    await window.reloadProducts();
   }
 
+  // ensure PRODUCTS is an array
+  window.PRODUCTS = window.PRODUCTS || [];
+
+  // if still empty, show console message (helps debugging)
+  if (!window.PRODUCTS.length) console.info('app.js: window.PRODUCTS is empty after load.');
+
+  // render UI
   renderCartUI();
   renderHomeProducts();
   renderBestSellers();
   renderProductsPage();
   renderProductDetail();
 
+  // UI initializations
   initTooltips();
   initGlobalDelegation();
   initCartDelegation();
   initFloatingWA();
   initCartCheckout();
   initScrollTop();
-  initPreloader();
-  initThemeToggle();
+  initPreloader && initPreloader();
 
-  // init tooltips after a small delay (for dynamically created elements)
+  // init tooltips after short delay for dynamic elements
   setTimeout(initTooltips, 300);
-
-  // hide preloader fallback
-  setTimeout(()=> {
-    const p = qs('#preloader'); if(p) { p.classList.add('hidden'); setTimeout(()=> p.style.display='none',300); }
-  }, 2500);
 });
-
-// Theme toggle (kept)
-function initThemeToggle(){
-  const toggles = qsa('#themeToggle, #themeToggle2, #themeToggle3, #themeToggle4, #themeToggle5, #themeToggle6');
-  const current = localStorage.getItem('herbaprima_theme') || 'light';
-  if(current === 'dark') document.body.classList.add('dark');
-  toggles.forEach(t => {
-    if(!t) return;
-    t.addEventListener('click', ()=>{
-      document.body.classList.toggle('dark');
-      const mode = document.body.classList.contains('dark') ? 'dark' : 'light';
-      localStorage.setItem('herbaprima_theme', mode);
-    });
-  });
-}
